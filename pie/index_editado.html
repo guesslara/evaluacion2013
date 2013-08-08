@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tutorial Graficos Barras, Pie en nuestra web</title>
+<meta name="description" content="Averigua como agregar graficos estadisticos en nuestra página web de forma rapida y muy sencilla usando jquery ajax" />
+<script language="javascript" src="jquery-1.3.1.min.js"></script>
+<script language="javascript" src="fgCharting.jQuery.js"></script>
+<script language="javascript" src="excanvas-compressed.js"></script>
+<script language="javascript">
+$(document).ready(function() {
+	if($.browser.msie) { 
+		setTimeout(function(){$.fgCharting();}, 2000);
+	} else {
+		$.fgCharting();
+	}	
+});
+
+</script>		
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<table id="dataTable" summary="Member Data from 2000 to 2006">
+	<caption>Member Data from 2000 to 2006</caption>
+	<thead>
+		<tr>
+			<td>Departamentos</td>
+			<th id="2000">Cantidad</th>
+		</tr>
+	</thead>
+	<tfoot>
+	</tfoot>
+	<tbody>
+		<tr>
+			<th headers="members">si</th>
+			<td headers="2000">50</td>
+		</tr>
+		<tr>
+			<th headers="members">si/pero</th>
+			<td headers="2000">5</td>
+		</tr>
+		<tr>
+			<th headers="members">si/no</th>
+			<td headers="2000">10</td>
+		</tr>
+		<tr>
+		  <th headers="members">no pero </th>
+		  <td headers="2000">15</td>
+	  </tr>
+		<tr>
+		  <th headers="members">no</th>
+		  <td headers="2000">20</td>
+	  </tr>
+	</tbody>
+</table>
+<div class="chartBlock" style="position: relative;">
+	<canvas id="chart1" class="fgCharting_src-dataTable_type-pie" width="400" height="400"></canvas>
+</div>   
+<p align="center"><a href="http://www.miguelmanchego.com/2009/agrega-graficos-estadisticos-ajax/">Regresar al Blog</a></p> 
+</body>
+</html>
