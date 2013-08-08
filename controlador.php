@@ -26,5 +26,9 @@
             //print_r($_POST);
             $objEncuesta->guardarDatosIniciales($_POST["txtFecha"],$_POST["txtNombre"],$_POST["txtPuesto"],$_POST["txtGerencia"],$_POST["txtUbicacion"],$_POST["relacion"]);
         break;
+        case "guardaComplemento":
+            //print_r($_POST);
+            $objEncuesta->guardaComplemento1($_POST["complementoA"],$_POST["complementoB"],$_POST["complementoC"],$_POST["evaluador"]);
+        break;
     }
 ?>

@@ -8,7 +8,7 @@ $numeroTotalEncuesta=99;
 //nombre de la tabla donde se guardan las respuestas
 $tablaEncuestas="encuestas";
 //nombre del atributo title en las paginas
-$title="ENCUESTA CLIMA LABORAL 2012";
+$title="EVALUACION 360°";
 //titulo de la ventana estadisticas
-$titleEstadisticas="ESTADISTICAS DE LA ENCUESTA - CLIMA LABORAL 2012";
+$titleEstadisticas="ESTADISTICAS DE LA EVALUACION 360°";
 ?>

@@ -83,6 +83,18 @@ function datosIniciales(){
 	}
 	//alert("Fecha "+txtFechaEv+"\nNombre: "+txtNombreEv+"\nPuesto: "+txtPuestoEv+"\nGerencia: "+txtGerenciaEv+"\nUbicacion "+txtUbicacionEv+"\nRelacion "+relacion);
 }
+function guardarComplemento(){
+	txtComplementoA=$("#txtComplementoA").val();
+	txtComplementoB=$("#txtComplementoB").val();
+	txtComplementoC=$("#txtComplementoC").val();
+	txtEvaluadorComplemento=$("#txtEvaluadorComplemento").val();
+	parametros="action=guardaComplemento&complementoA="+txtComplementoA+"&complementoB="+txtComplementoB+"&complementoC="+txtComplementoC+"&evaluador="+txtEvaluadorComplemento;
+	if(txtEvaluadorComplemento=="" || txtEvaluadorComplemento==null || txtEvaluadorComplemento==undefined){
+		alert("Indique el nombre del evaluador");
+	}else{
+		ajax("div_editar",parametros);
+	}
+}
 function gracias(){
 	depto=$("#cboDepto").val();
 	if(depto=="Selecciona"){

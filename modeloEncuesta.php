@@ -7,6 +7,7 @@
   * Fecha 25 de Noviembre de 2012
   */
     session_start();
+    print_r($_SESSION);
     class modeloEncuesta{
         
         private function conexionBd(){
@@ -20,6 +21,16 @@
 	    }
         }
         
+	public function guardaComplemento1($complementoA,$complementoB,$complementoC,$evaluador){
+	    array_push($_SESSION["respuestas_globales"],$complementoA);
+	    array_push($_SESSION["respuestas_globales"],$complementoB);
+	    array_push($_SESSION["respuestas_globales"],$complementoC);
+	    array_push($_SESSION["respuestas_globales"],$evaluador);
+?>
+            <script type="text/javascript"> ajax("div_resultados","action=encuesta&idTema=3&nroPregunta=1") </script>
+<?	    
+	}
+	
 	public function guardarDatosIniciales($txtFecha,$txtNombre,$txtPuesto,$txtGerencia,$txtUbicacion,$relacion){
 	    //se guardan los valores en el array
 	    array_push($_SESSION["respuestas_globales"],$txtFecha);
@@ -71,7 +82,7 @@
                 array_push($_SESSION["respuestas_globales"],$respuestasP[$i]);
             }
 ?>
-            <script type="text/javascript"> ajax("div_resultados","action=encuesta&idTema=1&nroPregunta=1") </script>
+            <script type="text/javascript"> ajax("div_resultados","action=encuesta&idTema=<?=$idTema;?>&nroPregunta=<?=$nroPregunta;?>") </script>
 <?
         }
         
@@ -107,7 +118,8 @@
             $this->estilosEncuesta();
             $temaActual=$this->devuelveTemaEncuesta($idTema);
             if($temaActual=="Sin Tema"){
-                $this->mostrarSeleccionDepto($idTema,$nroPregunta);
+                //$this->mostrarSeleccionDepto($idTema,$nroPregunta);
+		$this->preguntasAbiertas1($idTema,$nroPregunta);
             }else{
                 $this->mostrarPreguntasTemaActual($idTema,$nroPregunta);
             }
@@ -133,9 +145,52 @@
             </div>";
         }
         
+	private function preguntasAbiertas1($idTema,$nroPregunta){
+?>
+	    <table width="98%" border="0" align="center" cellpadding="1" cellspacing="1" style="font-size:12px;" >
+		<tr>
+		    <td><p align="left" class="Estilo1">COMPLEMENTO DE LA EVALUACI&Oacute;N</p></td>
+		</tr>
+		<tr>
+		    <td style="font-weight: bold;font-size: 14px;">A.- Indique c&oacute;mo la persona refleja los valores de IQE y su compromiso para asegurar que los mismos se apliquen. (Liderazgo,Innovaci&oacute;n,Visi&oacute;n laboral a resultados; Vocaci&oacute;n de servicio; Calidad; Integridad, Trabajo en equipo, Responsabilidad)</td>
+		</tr>
+		<tr>
+		    <td><textarea name="txtComplementoA" id="txtComplementoA" cols="70" rows="6"></textarea></td>
+		</tr>
+		<tr>
+		    <td style="font-weight: bold;font-size: 14px;">B.- S&iacute;rvase en este caso indicar alguna(s) fortaleza(s) y debilidad(es) particulares sobre la persona en referencia.</td>
+		</tr>
+		<tr>
+		    <td><textarea name="txtComplementoB" id="txtComplementoB" cols="70" rows="6"></textarea></td>
+		</tr>
+		<tr>
+		    <td style="font-weight: bold;font-size: 14px;">C.- ¿Qu&eacute; le sugerir&iacute;a a la persona en referencia para mejorar su desempeño personal?</td>
+		</tr>
+		<tr>
+		    <td><textarea name="txtComplementoC" id="txtComplementoC" cols="70" rows="6"></textarea></td>
+		</tr>
+		<tr>
+		    <td><hr style="background: #000;"></td>
+		</tr>
+		<tr>
+		    <td style="font-weight: bold;font-size: 14px;">Evaluador:</td>
+		</tr>
+		<tr>
+		    <td style="font-weight: bold;font-size: 14px;">Nombre: <input type="text" name="txtEvaluadorComplemento" id="txtEvaluadorComplemento" style="width: 250px;font-size: 14px;font-weight: bold;"></td>
+		</tr>
+	    </table>
+	    <p align="right" style="margin-right:10px;"><a href="javascript:guardarComplemento();" style="font-size:20px; color:#06F; text-decoration:none;">Siguiente >></a></p>
+<?
+	}
+	
         private function mostrarPreguntasTemaActual($idTema,$nroPregunta){
+	    echo "Tema: ".$idTema."<br>";
+	    echo "Pregunta: ".$nroPregunta."<br>";
+	    if($idTema==2){
+		$this->preguntasAbiertas1($idTema,$nroPregunta);
+	    }else{
 ?>            
-            <p align="left" class="Estilo1"><? echo $this->devuelveTemaEncuesta($idTema);?></p>
+            <p align="left" class="Estilo1"><? echo utf8_encode($this->devuelveTemaEncuesta($idTema));?></p>
             <div id="Mensaje" style="size:90%; border:2 px solid #000000;" >
                 <p style="margin:8px; text-align:justify;">&nbsp;</p>
                 <div align="center" id="div">
@@ -149,7 +204,7 @@
 			<td colspan="6" style="font-size: 12px;font-weight: bold;">5) = Excelente, 4) = Muy Bueno, 3) = Bueno, 2) = Regular, 1) = Deficiente</td>
 		    </tr>
 		    <tr>
-                      <td width="69%" align="center" class="Estilo8 style1" style="height:20px; background:#CCC;"><span class="Estilo5"><strong>Preguntas</strong></span></td>
+                      <td width="69%" align="center" class="Estilo8 style1" style="height:20px; background:#CCC;"><span class="Estilo5"><strong>CONCEPTO</strong></span></td>
                       <td width="5%" align="center" class="Estilo5" style="height:20px; background:#CCC;">1</td>
                       <td width="5%" align="center" class="Estilo5" style="height:20px; background:#CCC;">2</td>
                       <td width="5%" align="center" class="Estilo5" style="height:20px; background:#CCC;">3</td>
@@ -179,7 +234,8 @@
                 <div id="preguntasDiv"></div>
             </div>            
 <?             
-        }
+	    }
+	}
         
         private function devuelvePreguntasTema($idTema){            
             $sqlP="select * from competencias where id_temaevaluacion='".$idTema."'";
@@ -194,11 +250,11 @@
         }
         
         private function devuelveTemaEncuesta($idTema){
-            $sqlTema="SELECT * FROM temas WHERE id_tema='".$idTema."'";
+            $sqlTema="SELECT * FROM temaEvaluacion WHERE id='".$idTema."'";
             $resTema=mysql_query($sqlTema,$this->conexionBd());
             $rowTema=mysql_fetch_array($resTema);            
             if(mysql_num_rows($resTema)!=0){
-                $temaActual=$rowTema["tema"];
+                $temaActual=$rowTema["nombreTema"];
             }else{
                 $temaActual="Sin Tema";
             }
