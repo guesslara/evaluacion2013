@@ -95,6 +95,12 @@ function guardarComplemento(){
 		ajax("div_editar",parametros);
 	}
 }
+function guardarComplemento2(){
+	txtObservacionesCom=$("#txtObservacionesCom").val();
+	txtEvaluadorComplemento2=$("#txtEvaluadorComplemento2").val();
+	parametros="guardaComplemento2&txtObservacionesCom="+txtObservacionesCom+"&txtEvaluadorCom="+txtEvaluadorComplemento2;
+	ajax("div_editar",parametros);
+}
 function gracias(){
 	depto=$("#cboDepto").val();
 	if(depto=="Selecciona"){

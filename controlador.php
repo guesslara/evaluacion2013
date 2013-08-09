@@ -30,5 +30,8 @@
             //print_r($_POST);
             $objEncuesta->guardaComplemento1($_POST["complementoA"],$_POST["complementoB"],$_POST["complementoC"],$_POST["evaluador"]);
         break;
+        case "guardaComplemento2":
+            print_r($_POST);
+        break;
     }
 ?>

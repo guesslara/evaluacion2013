@@ -145,6 +145,29 @@
             </div>";
         }
         
+	private function preguntasAbiertas2($idTema,$nroPregunta){
+?>
+	    <table width="98%" border="0" align="center" cellpadding="1" cellspacing="1" style="font-size:12px;" >
+		<tr>
+		    <td><p align="left" class="Estilo1">OBSERVACIONES</p></td>
+		</tr>		
+		<tr>
+		    <td><textarea name="txtObservacionesCom" id="txtObservacionesCom" cols="70" rows="6"></textarea></td>
+		</tr>
+		<tr>
+		    <td><hr style="background: #000;"></td>
+		</tr>
+		<tr>
+		    <td style="font-weight: bold;font-size: 14px;">Jefe inmediato:</td>
+		</tr>
+		<tr>
+		    <td style="font-weight: bold;font-size: 14px;">Nombre: <input type="text" name="txtEvaluadorComplemento2" id="txtEvaluadorComplemento2" style="width: 250px;font-size: 14px;font-weight: bold;"></td>
+		</tr>
+	    </table>
+	    <p align="right" style="margin-right:10px;"><a href="javascript:guardarComplemento2();" style="font-size:20px; color:#06F; text-decoration:none;">Siguiente >></a></p>
+<?
+	}
+	
 	private function preguntasAbiertas1($idTema,$nroPregunta){
 ?>
 	    <table width="98%" border="0" align="center" cellpadding="1" cellspacing="1" style="font-size:12px;" >
@@ -188,6 +211,8 @@
 	    echo "Pregunta: ".$nroPregunta."<br>";
 	    if($idTema==2){
 		$this->preguntasAbiertas1($idTema,$nroPregunta);
+	    }else if($idTema==4){
+		$this->preguntasAbiertas2($idTema,$nroPregunta);
 	    }else{
 ?>            
             <p align="left" class="Estilo1"><? echo utf8_encode($this->devuelveTemaEncuesta($idTema));?></p>
@@ -229,8 +254,8 @@
             }
 ?>         
                 </table></form>
-                </div>
-                <p align="right" style="margin-right:10px;"><a href="javascript:validarRespuestas('<?=$nroRespuestas;?>','<?=$idTema+1;?>','<?=$i;?>');" style="font-size:20px; color:#06F; text-decoration:none;">Siguiente >></a></p>
+                </div>                
+		<p align="right" style="margin-right:10px;"><a href="javascript:validarRespuestas('<?=$nroRespuestas;?>','<?=$idTema+1;?>','<?=$i;?>');" style="font-size:20px; color:#06F; text-decoration:none;">Siguiente >></a></p>
                 <div id="preguntasDiv"></div>
             </div>            
 <?             
