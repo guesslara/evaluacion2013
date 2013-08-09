@@ -9,7 +9,8 @@
 --><script language="javascript">
 function presentacion(){
 	datos="action=presentacion";
-	ajax("div_presentacion",datos,"");
+	//ajax("div_presentacion",datos,"");
+        ajax("div_presentacion","action=mostrarEvaluados")
 }
 function ajax(capa,datos,ocultar_capa){
 	if (!(ocultar_capa==""||ocultar_capa==undefined||ocultar_capa==null)) { $("#"+ocultar_capa).hide(); }
@@ -128,6 +129,7 @@ body{overflow: hidden;}
 		#menu{ text-align:left; }
 	/*,#div_temas,#div_preguntas*/
 	#pie{ font-size:10px; text-align:center;  border-top:#333333 1px dotted;font-weight: bold; }
+        .estiloFilaTabla{height: 15px;padding: 5px;text-align: left;border-bottom: 1px solid #CCC;}
 </style>
 </head>
 <body onload="presentacion()">

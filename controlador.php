@@ -1,5 +1,6 @@
 <?php
     include("modeloEncuesta.php");
+    include("modeloResultados.php");
     $objEncuesta=new modeloEncuesta();
     $action=$_POST["action"];
     
@@ -33,6 +34,10 @@
         case "guardaComplemento2":
             //print_r($_POST);
             $objEncuesta->guardaComplemento2($_POST["txtObservacionesCom"],$_POST["txtEvaluadorCom"]);            
+        break;
+        case "mostrarEvaluados":
+            $objResultados=new modeloEvaluacionResultados();
+            $objResultados->mostrarEvaluados();
         break;
     }
 ?>

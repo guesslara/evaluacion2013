@@ -75,8 +75,8 @@
                     $campos_valores=$campos_valores.",P".$i;
                 }
             }
-	    echo $insert="insert into encuestas (".$campos_valores.",departamento) values ($sql_valores)";
-	    exit;
+	    echo $insert="insert into encuestas2 (".$campos_valores.") values ($sql_valores)";
+	    //exit;
             $resE=mysql_query($insert,$this->conexionBd());
             if($resE){
                 echo "<script type='text/javascript'> alert('Respuestas Guardadas'); presentacion(); </script>";
@@ -316,8 +316,7 @@
             
             <div id="Mensaje" style="size:90%; border:2 px solid #000000;" >
                 <p align="center" class="Estilo1">Introducci&oacute;n</p>
-                <p class="Estilo2" style="text-align: justify;width: 98%;margin: 10px;">Para conocer los detalles sobre la evaluaci&oacute;n de click en el enlace situado en la parte inferior:</p>
-		<p class="Estilo2" style="text-align: justify;width: 98%;margin: 10px;"><a href="#" title="Ver Archivo">Ver Archivo</a></p>
+                <p class="Estilo2" style="text-align: justify;width: 98%;margin: 10px;">Para conocer los detalles sobre la evaluaci&oacute;n de click en el siguiente enlace: [ <a href="documento/Evaluacion.pdf" target="_blank" style="color: blue;text-decoration: none;" title="Ver Archivo">Ver Archivo</a> ]</p>
 		<!--
 		<p class="Estilo2" style="text-align: justify;width: 98%;">Una de las inquietudes más importantes que existen en IQ International, es la relativa al ambiente de trabajo y clima interno en que se desenvuelven los empleados y trabajadores.</p>
                 <p class="Estilo2" style="text-align: justify;width: 98%;">Para la empresa, es de suma importancia ayudar a crear y mantener un lugar de trabajo gratificante que satisfaga y enorgullezca al personal.</p>
@@ -353,7 +352,7 @@
                 <p align="justify" class="Estilo2" style="text-align: justify;width: 98%;">Lea la pregunta e inmediatamente después seleccione la respuesta que usted crea conveniente. Subraye la letra que corresponda a la respuesta que más se asemeje a lo que usted piensa.</p>
 		-->
                 <p>&nbsp;</p>
-		<p style="margin: 10px;">I. DATOS DEL EVALUADO</p>
+		<p style="margin: 10px;font-size: 16px;font-weight: bold;">I. DATOS DEL EVALUADO</p>
 		<table border="0" cellpading="1" cellspacing="1" width="600" style="margin: 10px;">
 		    <tr>
 			<td width="200">Fecha:</td>
@@ -377,15 +376,15 @@
 		    </tr>
 		</table>
 		<p>&nbsp;</p>
-		<p style="margin: 10px;">II. DATOS DEL EVALUADOR</p>
+		<p style="margin: 10px;font-size: 16px;font-weight: bold;">II. DATOS DEL EVALUADOR</p>
 		<table border="0" cellpading="1" cellspacing="1" width="800" style="margin: 10px;">
 		    <tr>
 			<td>Relaci&oacute;n con el evaluado</td>
-			<td>
-			    Autoevaluaci&oacute;n<input type="radio" value="autoevaluacion" name="rdbEvaluador" id="rdbEvaluador">
-			    Jefe inmediato<input type="radio" value="jefeInmediato" name="rdbEvaluador" id="rdbEvaluador">
-			    Colaborador<input type="radio" value="colaborador" name="rdbEvaluador" id="rdbEvaluador">
-			    Colega<input type="radio" value="colega" name="rdbEvaluador" id="rdbEvaluador">					    
+			<td style="text-align: left;">
+			    Autoevaluaci&oacute;n<input type="radio" value="autoevaluacion" name="rdbEvaluador" id="rdbEvaluador"><br>
+			    Jefe inmediato<input type="radio" value="jefeInmediato" name="rdbEvaluador" id="rdbEvaluador"><br>
+			    Colaborador<input type="radio" value="colaborador" name="rdbEvaluador" id="rdbEvaluador"><br>
+			    Colega<input type="radio" value="colega" name="rdbEvaluador" id="rdbEvaluador"><br>					    
 			</td>
 		    </tr>
 		</table>
@@ -409,7 +408,7 @@
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
-                <p align="center" class="Estilo1">Evaluaci&oacute;n 360°</p>
+                <p align="center" class="Estilo1">&nbsp;</p>
                 <p align="center" class="Estilo2">&nbsp;</p>
                 <p align="justify" class="Estilo2">&nbsp;</p>
                 <p align="justify" class="Estilo2"></p>
@@ -435,7 +434,7 @@
             .x {text-align: center;}
             #Mensaje .Estilo2 {text-align: center;}
             </style>";
-	    echo "<div align='center'>
+	    /*echo "<div align='center'>
                     <div id='cabecera' style='border: 1px solid #000000;'>
                         <table width='100%' border='1' style='font-size: 12px;font-family: Verdana,Arial,Helvetica, sans-serif;'>
                             <tr>
@@ -450,7 +449,23 @@
                             </tr>
                         </table>
                     </div>
-                </div>";
+                </div>";*/
+	    echo "<div align='center'>
+                    <div id='cabecera' style='border: 0px solid #000000;'>
+			<table width='100%' border='0' style='font-size: 12px;font-family: Verdana,Arial,Helvetica, sans-serif;'>
+			    <tr>
+				<td style='text-align:center;font-weight:bold;font-size:18px;height:40px;'>
+				EVALUACI&Oacute;N 360&deg;
+				</td>
+			    </tr>
+			    <tr>
+				<td style='text-align:center;font-size:16px;height:50px;'>
+				Dimensi&oacute;n de competencias gen&eacute;ricas<br>(Confidencial)				
+				</td>
+			    </tr>
+			</table>
+		    </div>
+		 </div>";   
         }//fin de la funcion cabecera
         
     }//fin de la clase
