@@ -7,7 +7,7 @@
   * Fecha 25 de Noviembre de 2012
   */
     session_start();
-    print_r($_SESSION);
+    //print_r($_SESSION);
     class modeloEncuesta{
         
         private function conexionBd(){
@@ -21,6 +21,16 @@
 	    }
         }
         
+	public function guardaComplemento2($txtObservacionesCom,$txtEvaluadorCom){
+	    //echo "Funcion para guardar el complemento 2"; exit;
+	    array_push($_SESSION["respuestas_globales"],$txtObservacionesCom);
+	    array_push($_SESSION["respuestas_globales"],$txtEvaluadorCom);
+?>
+	    <script type="text/javascript"> gracias(); </script>
+<?
+	    //echo "<p align='center' style='margin-right:10px;'><a href='javascript:gracias();' style='font-size:20px; color:#06F; text-decoration:none;'>Siguiente >></a></p>";
+	}
+	
 	public function guardaComplemento1($complementoA,$complementoB,$complementoC,$evaluador){
 	    array_push($_SESSION["respuestas_globales"],$complementoA);
 	    array_push($_SESSION["respuestas_globales"],$complementoB);
@@ -65,7 +75,8 @@
                     $campos_valores=$campos_valores.",P".$i;
                 }
             }
-	    $insert="insert into encuestas (".$campos_valores.",departamento) values ($sql_valores)";
+	    echo $insert="insert into encuestas (".$campos_valores.",departamento) values ($sql_valores)";
+	    exit;
             $resE=mysql_query($insert,$this->conexionBd());
             if($resE){
                 echo "<script type='text/javascript'> alert('Respuestas Guardadas'); presentacion(); </script>";
@@ -117,10 +128,12 @@
             $this->mostrarCabecera();
             $this->estilosEncuesta();
             $temaActual=$this->devuelveTemaEncuesta($idTema);
-            if($temaActual=="Sin Tema"){
+            if($temaActual=="Sin Tema" && $idTema==2){
                 //$this->mostrarSeleccionDepto($idTema,$nroPregunta);
 		$this->preguntasAbiertas1($idTema,$nroPregunta);
-            }else{
+            }else if($temaActual=="Sin Tema" && $idTema==4){
+		$this->preguntasAbiertas2($idTema,$nroPregunta);
+	    }else{
                 $this->mostrarPreguntasTemaActual($idTema,$nroPregunta);
             }
         }
@@ -207,8 +220,8 @@
 	}
 	
         private function mostrarPreguntasTemaActual($idTema,$nroPregunta){
-	    echo "Tema: ".$idTema."<br>";
-	    echo "Pregunta: ".$nroPregunta."<br>";
+	    //echo "Tema: ".$idTema."<br>";
+	    //echo "Pregunta: ".$nroPregunta."<br>";
 	    if($idTema==2){
 		$this->preguntasAbiertas1($idTema,$nroPregunta);
 	    }else if($idTema==4){

@@ -10,7 +10,7 @@
         case "objetivo":
             $objEncuesta->objetivo();
         break;
-        case "encuesta":             
+        case "encuesta":            
             $objEncuesta->mostrarPreguntasEncuesta($_POST["idTema"],$_POST["nroPregunta"]);
         break;
         case "guardarRespuestas":
@@ -31,7 +31,8 @@
             $objEncuesta->guardaComplemento1($_POST["complementoA"],$_POST["complementoB"],$_POST["complementoC"],$_POST["evaluador"]);
         break;
         case "guardaComplemento2":
-            print_r($_POST);
+            //print_r($_POST);
+            $objEncuesta->guardaComplemento2($_POST["txtObservacionesCom"],$_POST["txtEvaluadorCom"]);            
         break;
     }
 ?>
