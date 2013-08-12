@@ -75,7 +75,7 @@
                     $campos_valores=$campos_valores.",P".$i;
                 }
             }
-	    echo $insert="insert into encuestas2 (".$campos_valores.") values ($sql_valores)";
+	    $insert="insert into encuestas2 (".$campos_valores.") values ($sql_valores)";
 	    //exit;
             $resE=mysql_query($insert,$this->conexionBd());
             if($resE){

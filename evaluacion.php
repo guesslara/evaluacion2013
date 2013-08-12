@@ -29,6 +29,13 @@
 	}
     }
 ?>
+<html>
+    <head>
+	<link rel="stylesheet" type="text/css" media="print" href="estilos.css">	
+    </head>
+<body>
+
+<div class="nover">
 <table border="0" cellpadding="1" cellspacing="1" width="1000" style="font-size: 12px;font-family: Verdana,Sans;">
     <tr>
         <td width="400" colspan="2" style="text-align: left;font-weight: bold;font-size: 14px;">I. DATOS DEL EVALUADO</td>        
@@ -160,11 +167,11 @@
         <td style="text-align: left;font-weight: bold;height: 15px;padding: 5px;" width="350">Promedio competencias</td>
         <td style="text-align: center;height: 15px;padding: 5px;" width="300">
             <div style="height: 35px;width: 98%;overflow: hidden;border: 0px solid #FF0000;">
-                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=$con1;?></div>
-                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=$con2;?></div>
-                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=$con3;?></div>
-                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=$con4;?></div>
-                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=$con5;?></div>
+                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=number_format($total=(($con1*1)*100) / 18,2);?></div>
+                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=number_format($total=(($con2*2)*100) / 36,2);?></div>
+                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=number_format($total=(($con3*3)*100) / 54,2);?></div>
+                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=number_format($total=(($con4*4)*100) / 72,2);?></div>
+                <div style="background: #FFF;color: #000;float: left;border: 1px solid #000;text-align: center;width: 40px;font-weight: bold;height: 23px;padding: 5px;"><?=number_format($total=(($con5*5)*100) / 90,2);?></div>
             </div>
         </td>
         <td style="text-align: center;" width="350">&nbsp;</td>
@@ -209,3 +216,6 @@
         <td colspan="4">&nbsp;</td>        
     </tr>
 </table>
+</div>
+</body>
+</html>

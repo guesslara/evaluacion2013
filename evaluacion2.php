@@ -29,6 +29,13 @@
 	}
     }
 ?>
+<html>
+    <head>
+	<link rel="stylesheet" type="text/css" media="print" href="estilos.css">	
+    </head>
+<body>
+
+<div class="nover">
 <table border="0" cellpadding="1" cellspacing="1" width="1000" style="font-size: 12px;font-family: Verdana,Sans;">
     <tr>
         <td width="400" colspan="2" style="text-align: left;font-weight: bold;font-size: 14px;">I. DATOS DEL EVALUADO</td>        
@@ -181,3 +188,6 @@
         <td colspan="4">&nbsp;</td>        
     </tr>
 </table>
+</div>
+</body>
+</html>
