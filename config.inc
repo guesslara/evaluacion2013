@@ -1,7 +1,7 @@
 <?php
 $host="localhost";
-$usuarioBd="root";
-$passBd="xampp";
+$usuarioBd="";
+$passBd="";
 $dbBd="encuesta2012";
 //numero de preguntas total en la encuesta
 $numeroTotalEncuesta=35;
